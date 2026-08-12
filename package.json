@@ -1,14 +1,17 @@
 {
   "name": "chantiflow-desktop",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Chantiflow — application de bureau (affiche le site en direct, dans une fenêtre native)",
   "main": "main.js",
   "author": "Chantiflow",
   "scripts": {
     "start": "electron .",
-    "build-win": "electron-builder --win",
-    "build-mac": "electron-builder --mac",
+    "build-win": "electron-builder --win --publish always",
+    "build-mac": "electron-builder --mac --publish always",
     "build-linux": "electron-builder --linux"
+  },
+  "dependencies": {
+    "electron-updater": "^6.3.0"
   },
   "devDependencies": {
     "electron": "^31.0.0",
@@ -18,12 +21,17 @@
     "appId": "fr.chantiflow.desktop",
     "productName": "Chantiflow",
     "files": ["main.js", "preload.js", "build/**/*"],
+    "publish": {
+      "provider": "github",
+      "owner": "ousbaali11",
+      "repo": "chantiflow-desktop"
+    },
     "win": {
       "target": "nsis",
       "icon": "build/icon.ico"
     },
     "mac": {
-      "target": "dmg",
+      "target": ["dmg", "zip"],
       "icon": "build/icon.icns"
     },
     "linux": {
