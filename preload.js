@@ -1,6 +1,9 @@
 // preload.js
 //
-// Fichier vide pour l'instant — présent uniquement pour respecter les
-// bonnes pratiques de sécurité d'Electron (contextIsolation activé).
-// Si un jour tu veux ajouter des fonctionnalités propres au bureau
-// (ex: notifications natives), c'est ici qu'elles s'ajouteraient.
+// Signale au site qu'il tourne à l'intérieur du logiciel de bureau
+// (pas dans un navigateur classique) — utilisé notamment pour cacher
+// le bouton "Télécharger le logiciel" quand on est déjà dedans.
+
+const { contextBridge } = require("electron");
+
+contextBridge.exposeInMainWorld("chantiflowDesktop", true);
