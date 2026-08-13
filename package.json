@@ -1,6 +1,6 @@
 {
   "name": "chantiflow-desktop",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Chantiflow — application de bureau (affiche le site en direct, dans une fenêtre native)",
   "main": "main.js",
   "author": "Chantiflow",
