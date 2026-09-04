@@ -126,6 +126,19 @@ function buildMenu() {
         { role: "togglefullscreen" },
       ],
     },
+    {
+      label: "Aide",
+      submenu: [
+        {
+          label: `Version installée : ${app.getVersion()}`,
+          enabled: false,
+        },
+        {
+          label: "Vérifier les mises à jour",
+          click: () => autoUpdater.checkForUpdates(),
+        },
+      ],
+    },
   ];
   Menu.setApplicationMenu(Menu.buildFromTemplate(template));
 }
